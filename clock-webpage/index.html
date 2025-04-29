@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Awesome Clock with 4K Wallpapers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for smooth background transitions */
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1.5s ease-in-out;
+      z-index: -1;
+    }
+    .fade-in {
+      animation: fadeIn 1.5s ease-in forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-['Roboto Mono'] flex flex-col items-center justify-center min-h-screen transition-colors duration-500" aria-label="Clock webpage with dynamic 4K wallpapers">
+
+  <div id="background" aria-hidden="true"></div>
+
+  <main class="z-10 text-center p-6 max-w-md w-full">
+    <div id="loading" class="mb-4 text-sm text-gray-400" aria-live="polite" role="status">Loading wallpapers...</div>
+
+    <div id="clock" class="text-6xl font-bold mb-2" aria-live="polite" aria-atomic="true" aria-label="Current time">00:00:00</div>
+    <div id="date" class="text-xl mb-4" aria-live="polite" aria-atomic="true" aria-label="Current date">Loading date...</div>
+    <div id="greeting" class="text-2xl mb-6" aria-live="polite" aria-atomic="true" aria-label="Greeting message">Hello!</div>
+
+    <div id="weather" class="mb-6" aria-live="polite" aria-atomic="true" aria-label="Current weather information">
+      <p>Loading weather...</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4 mb-6">
+      <button id="toggleFormat" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" aria-pressed="false" aria-label="Toggle 12 or 24 hour format">Toggle 12/24 Hour</button>
+      <button id="pauseResume" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-400" aria-pressed="false" aria-label="Pause or resume wallpaper transitions">Pause Wallpapers</button>
+      <button id="nextWallpaper" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400" aria-label="Switch to next wallpaper">Next Wallpaper</button>
+      <button id="toggleDarkMode" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-400" aria-pressed="false" aria-label="Toggle dark or light mode">Toggle Dark Mode</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
